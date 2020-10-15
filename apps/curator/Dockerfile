@@ -6,13 +6,12 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         git \
         zip \
-        unzip \ 
+        unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
 # Set working directory
 WORKDIR /var/www/curator
-
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -30,6 +29,10 @@ COPY . /var/www/curator
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www/curator
 
+# Change permission
+RUN chown -R www:www /var/www/curator/
+RUN chmod -R 774 /var/www/curator/
+
 # Change current user to www
 USER www
 
@@ -40,8 +43,6 @@ RUN composer dump-autoload
 
 # Set /storage /public permission to public
 RUN chmod -R 777 storage/ public/
-
-
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000

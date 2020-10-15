@@ -4,14 +4,11 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
-        git \
-        zip \
-        unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
 # Set working directory
-WORKDIR /var/www/dispenser
+WORKDIR /var/www/jobs
 
 
 # Clear cache
@@ -25,14 +22,14 @@ RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy existing application directory contents
-COPY . /var/www/dispenser
+COPY . /var/www/jobs
 
 # Copy existing application directory permissions
-COPY --chown=www:www . /var/www/dispenser
+COPY --chown=www:www . /var/www/jobs
 
 # Change permission
-RUN chown -R www:www /var/www/dispenser/
-RUN chmod -R 774 /var/www/dispenser/
+RUN chown -R www:www /var/www/jobs/
+RUN chmod -R 774 /var/www/jobs/
 
 # Change current user to www
 USER www
@@ -45,4 +42,3 @@ RUN composer dump-autoload
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
-
