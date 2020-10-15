@@ -63,7 +63,7 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www/jobs
     volumes:
-      - ./apps/dispenser/:/var/www/jobs
+      - ./apps/jobs/:/var/www/jobs
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
