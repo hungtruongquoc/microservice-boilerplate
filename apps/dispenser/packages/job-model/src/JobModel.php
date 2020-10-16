@@ -20,6 +20,9 @@ class JobModel extends Model
         if (is_null($this->started_at)) {
             return 'Pending';
         }
+        if (is_null($this->completed_at) && !is_null($this->started_at) && !is_nulli($this->processor_id)) {
+            return 'In Progress';
+        }
         return 'Unknown';
     }
 }
