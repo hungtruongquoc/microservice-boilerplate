@@ -5,6 +5,7 @@ This initial part will allow us to set up the foundation of our project, dockeri
 
 Here is the Medium post related to this project:
 https://medium.com/@shadysmaoui/micro-services-with-lumen-laravel-nginx-mysql-70b3554e8068
+[Enable Eloquent](https://medium.com/@petehouston/enable-eloquent-orm-in-laravel-lumen-micro-framework-7a4f2fbcaf5d)
 
 ## Prerequisites:
 
