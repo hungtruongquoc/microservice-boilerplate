@@ -1,11 +1,16 @@
 {
     "name": "laravel/lumen",
     "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "lumen"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": "^7.4",
+        "hungtruong/job-model": "dev-master",
         "laravel/lumen-framework": "v8.1.0"
     },
     "require-dev": {
@@ -32,6 +37,12 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/job-model"
+        }
+    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

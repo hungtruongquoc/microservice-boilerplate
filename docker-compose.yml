@@ -11,6 +11,7 @@ services:
     volumes:
       - ./apps/curator/:/var/www/curator
       - ./apps/dispenser/:/var/www/dispenser
+      - ./apps/jobs:/var/www/jobs
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./docker/nginx/sites/:/etc/nginx/conf.d/
       - ./docker/nginx/ssl/:/etc/ssl/
@@ -30,6 +31,7 @@ services:
     working_dir: /var/www/curator
     volumes:
       - ./apps/curator/:/var/www/curator
+      - ./packages:/var/www/packages
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -47,6 +49,7 @@ services:
     working_dir: /var/www/dispenser
     volumes:
       - ./apps/dispenser/:/var/www/dispenser
+      - ./packages:/var/www/packages
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -63,7 +66,8 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www/jobs
     volumes:
-      - ./apps/dispenser/:/var/www/jobs
+      - ./apps/jobs/:/var/www/jobs
+      - ./packages:/var/www/packages
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network

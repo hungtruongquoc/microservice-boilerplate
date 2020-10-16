@@ -4,12 +4,15 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        git \
+        zip \
+        unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install mysqli pdo pdo_mysql
 
 # Set working directory
 WORKDIR /var/www/jobs
-
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
