@@ -36,5 +36,11 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/job-model"
+        }
+    ]
 }
