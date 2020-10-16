@@ -13,5 +13,8 @@
 
 $router->get('/', 'HealthCheckController@info');
 
-
 $router->get('/_health', 'HealthCheckController@health');
+
+$router->post('/jobs', 'JobController@create');
+$router->get('/jobs/{id}', 'JobController@getStatus');
+$router->get('/jobs', 'JobController@getNextJob');
