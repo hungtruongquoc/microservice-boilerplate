@@ -52,6 +52,13 @@ The file docker-compose.yml describes details about services included in this pr
 - The `docker` folder contains domain name configuration of each service in `nginx/sites` if you want to run the
  whole stack locally. On Mac OS, you would need those names in your `/etc/hosts` files and point them to `127.0.0.1`.
  
+### Database Migrations and Seeders
+
+3 migrations need to be executed under `apps\dispenser\database\migrations` mainly for creating data tables. The job
+ service has a migration to add a flag for the `jobs` table `apps\dispenser\database\migrations`. 
+ 
+1 seeder under `apps\dispenser\database\seeders` is needed to insert initial data for the `stats` table.
+
 ## Questions
 
 Please contact Hung Truong (hungtruongquoc@gmail.com) for any question and concerned
