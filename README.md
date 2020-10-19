@@ -43,11 +43,12 @@ The file docker-compose.yml describes details about services included in this pr
 - For `dispenser` service: I created `JobController` under folder `app/Http/Controllers` and added new routes (POST
 , GET) to `routes/web.php`.
 - For `jobs` service:I created `ProcessorController` under folder `app/Http/Controllers` and added a new PUT route to
- `routes/web.php` 
+ `routes/web.php`. Also, I created a `JobCompleted` event under `app\Events` and the corresponding listener
+  `JobCompletedListener` under `app\Listensers` for updating the job statistics (run time) after each job completed.
 - I created a package folder containing 2 Eloquent models: `JobModel` and `JobStatModel` to be shared among these
  services. I tried to set up the package so that I can import them locally into the services. However, the Dockerfile
   of each service does not allow any kind of access outside the folder of each service. Therefore, you can see there
-   2 `packages` folders inside code base of services.
+   2 `packages` folders inside code base of services. 
 - The `docker` folder contains domain name configuration of each service in `nginx/sites` if you want to run the
  whole stack locally. On Mac OS, you would need those names in your `/etc/hosts` files and point them to `127.0.0.1`.
  
