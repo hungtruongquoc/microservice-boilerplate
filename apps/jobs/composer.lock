@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1838e7b29b68339e64c3ddfea821bdbb",
+    "content-hash": "6f3f24f888b194298f1c31bbf18a70a5",
     "packages": [
         {
             "name": "brick/math",
@@ -398,6 +398,71 @@
                 }
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "hungtruong/job-model",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/job-model",
+                "reference": "5fdeb479cb4f9534d88f63aa026a80ef3eeebabb"
+            },
+            "require": {
+                "illuminate/support": "v8.10.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hungtruong\\JobModel\\JobModelServiceProvider"
+                    ],
+                    "aliases": {
+                        "JobModel": "Hungtruong\\JobModel\\JobModelFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hungtruong\\JobModel\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Hungtruong\\JobModel\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hung Truong",
+                    "email": "hungtruongquoc@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Model of a job",
+            "homepage": "https://github.com/hungtruong/job-model",
+            "keywords": [
+                "hungtruong",
+                "job-model"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "illuminate/auth",
@@ -6737,7 +6802,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hungtruong/job-model": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
