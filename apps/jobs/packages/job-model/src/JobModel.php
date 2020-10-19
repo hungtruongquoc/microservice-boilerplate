@@ -23,6 +23,9 @@ class JobModel extends Model
         if (is_null($this->completed_at) && !is_null($this->started_at) && !is_nulli($this->processor_id)) {
             return 'In Progress';
         }
+        if (!is_null($this->completed_at) && !is_null($this->processor_id)) {
+            return $this->success ? 'Success' : 'Failed';
+        }
         return 'Unknown';
     }
 }
